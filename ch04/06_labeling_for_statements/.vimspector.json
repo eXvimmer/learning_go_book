@@ -1,12 +1,14 @@
 {
   "configurations": {
     "run": {
-      "adapter": "delve",
-      "filetypes": ["go"],
+      "adapter": "vscode-go",
       "configuration": {
         "request": "launch",
-        "program": "labels",
-        "mode": "debug"
+        "program": "/home/mustafa/practice/books/learning_Go/new/ch04/06_labeling_for_statements/main.go",
+        "mode": "debug",
+        "showLog": "true",
+        "trace": "log",
+        "dlvToolPath": "/home/mustafa/go/bin/dlv"
       }
     }
   }
