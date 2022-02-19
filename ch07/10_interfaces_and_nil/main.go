@@ -4,13 +4,13 @@ import (
 	"fmt"
 )
 
-// NOTE: In order for an interface considered to be nil both the type and value
+// NOTE: In order for an interface to be considered nil both the type and value
 // must be nil.
 
 func main() {
 	var s *string
-	var i interface{}     // type and value is nil
 	fmt.Println(s == nil) // true
+	var i interface{}     // type and value is nil
 	fmt.Println(i == nil) // true
 	i = s
 	fmt.Println(i == nil) // false, type is not nil
