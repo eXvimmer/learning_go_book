@@ -9,6 +9,6 @@ import (
 
 func main() {
 	num := math.Double(2)
-	output := formatter.Format(num)
+	output := print.Format(num)
 	fmt.Println(output)
 }
