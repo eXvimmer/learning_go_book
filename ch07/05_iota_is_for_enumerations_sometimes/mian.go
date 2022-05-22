@@ -2,6 +2,8 @@ package main
 
 import ()
 
+// NOTE: When using iota, the best practice is to first define a type based on
+// int that will represent all of the valid values:
 type MailCategory int
 
 const (
@@ -19,7 +21,7 @@ const (
 
 type BitField int
 
-// NOTE: Be careful when using this pattern. Document what you're doing. This
+// WARN: Be careful when using this pattern. Document what you're doing. This
 // pattern is fragile.
 const (
 	Field1 BitField = 1 << iota
