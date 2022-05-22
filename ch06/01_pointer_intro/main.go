@@ -12,6 +12,18 @@ type Person struct {
 	lastName   string
 }
 
+func failedUpdate(g *int) {
+	x := 10
+	g = &x // Hello?
+}
+
+func update(px *int) {
+	if px == nil {
+		return
+	}
+	*px = 13
+}
+
 func main() {
 	// NOTE: The zero value for a pointer is nil. Slices, maps, channels,
 	// interfaces and functions are implemented with with pointers, so the zero
@@ -56,4 +68,18 @@ func main() {
 		lastName: "Hayati",
 	}
 	fmt.Println(p, &p)
+
+	// NOTE: when you pass a nil pointer to a function, you cannot make the value
+	// non-nil.
+	var g *int
+	failedUpdate(g)
+	fmt.Println(g) // nil
+
+	m := 10
+	failedUpdate(&m)
+	fmt.Println(m)
+	update(&m)
+	fmt.Println(m)
+	update(g)
+	fmt.Println(g)
 }
