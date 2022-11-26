@@ -36,21 +36,21 @@ func main() {
 
 	// append makes overlapping slices more confusing
 	r := []int{1, 2, 3, 4}
-	s := r[:2]
+	s := r[:2] // len 2, cap 4
 	// NOTE:
 	// cap(s) = cap(r) - the offset of the subslice within the original slice.
 	// This means any unused capacity in the original slice is also shared with
 	// any subslices.
 	fmt.Println(cap(r), cap(s))
-	s = append(s, 30)
-	fmt.Println("r:", r)
-	fmt.Println("s:", s)
+	s = append(s, 30)    // changes 3 in r to 30
+	fmt.Println("r:", r) // [1, 2, 30, 4]
+	fmt.Println("s:", s) // [1, 2, 30] // len 3, cap 4
 
 	// Even more confusing slices
 	x1 := make([]int, 0, 5)
 	x1 = append(x1, 1, 2, 3, 4)
-	y1 := x1[:2]
-	z1 := x1[2:]
+	y1 := x1[:2]                           // len 2, cap 5
+	z1 := x1[2:]                           // len 2, cap 5 - 2 = 3
 	fmt.Println(cap(x1), cap(y1), cap(z1)) // Read the NOTE above
 	y1 = append(y1, 30, 40, 50)
 	fmt.Println("y1:", y1, len(y1), cap(y1))
@@ -65,9 +65,8 @@ func main() {
 	// NOTE: The full slice expression protects against append. The full slice
 	// expression includes a third part, which indicates the last position in the
 	// parent slice's capacity that's available for subslice.
-	fullSlice1 := x1[:2:2]  // cap = 2 (the last number) - offset
-	fullSlice2 := x1[2:4:4] // cap = 4 - offset
+	fullSlice1 := x1[:2:2]  // cap = 2 (the last number) - offset = 2 - 0 = 2
+	fullSlice2 := x1[2:4:4] // cap = 4 - offset = 2
 	fmt.Println("fullSlice1:", fullSlice1, len(fullSlice1), cap(fullSlice1))
 	fmt.Println("fullSlice2:", fullSlice2, len(fullSlice2), cap(fullSlice2))
-
 }

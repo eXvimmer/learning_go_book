@@ -18,4 +18,14 @@ func main() {
 	if intSet[99] {
 		fmt.Println("99 is in the set")
 	}
+
+	// NOTE: You might want to use a struct to make a set. The advantage is that
+	// a bool is 1 byte, while an empty struct uses zero bytes; The disadvantage
+	// is that using structs makes your code more clumsy.
+	nameSet := map[string]struct{}{}
+	names := []string{"Mustafa", "Malena", "Emi", "Maya", "Emma", "Malena", "Emi"}
+	for _, v := range names {
+		nameSet[v] = struct{}{}
+	}
+	fmt.Println(nameSet)
 }

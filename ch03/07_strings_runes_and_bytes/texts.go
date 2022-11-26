@@ -26,4 +26,3 @@ func main() {
 	var s7 string = string(b1)
 	fmt.Println(a, s6, b1, s7)
 }
-
