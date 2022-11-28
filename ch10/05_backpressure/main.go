@@ -53,7 +53,7 @@ func main() {
 
 		if err != nil {
 			w.WriteHeader(http.StatusTooManyRequests)
-			w.Write([]byte("too many requests"))
+			w.Write([]byte(http.StatusText(http.StatusTooManyRequests)))
 		}
 	})
 
