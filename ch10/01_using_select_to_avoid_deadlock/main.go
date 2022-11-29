@@ -16,7 +16,7 @@ func main() {
 	v := 2
 	var v2 int
 
-	select {
+	select { // select checks if 'any' of its cases can proceed
 	case ch2 <- v:
 	case v2 = <-ch1:
 	}
