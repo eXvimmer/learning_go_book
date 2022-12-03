@@ -17,6 +17,7 @@ func TestDoMath(t *testing.T) {
 		{"multiplication", 4, 9, "*", 36, ""},
 		{"division", 26, 2, "/", 13, ""},
 		{"bad_division", 4, 0, "/", 0, "division by zero"},
+		{"default_case", 4, 0, "@", 0, "unknown operator @"},
 	}
 
 	for _, d := range data {
